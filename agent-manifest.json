@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "agents": [
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "type": "cursor"
+    },
+    {
+      "id": "claude",
+      "name": "Claude Code",
+      "file": "CLAUDE.md",
+      "header": "CLAUDE.header.md"
+    },
+    {
+      "id": "copilot",
+      "name": "GitHub Copilot",
+      "file": ".github/copilot-instructions.md",
+      "header": "copilot.header.md"
+    },
+    {
+      "id": "agents-md",
+      "name": "AGENTS.md（Copilot Agent / Codex 等）",
+      "file": "AGENTS.md",
+      "header": "AGENTS.header.md"
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf",
+      "file": ".windsurfrules",
+      "header": "windsurf.header.md"
+    },
+    {
+      "id": "cline",
+      "name": "Cline",
+      "file": ".clinerules",
+      "header": "cline.header.md"
+    },
+    {
+      "id": "aider",
+      "name": "Aider",
+      "file": "CONVENTIONS.md",
+      "header": "aider.header.md"
+    },
+    {
+      "id": "continue",
+      "name": "Continue",
+      "file": ".continue/rules/team-standards.md",
+      "header": "continue.header.md"
+    }
+  ]
+}

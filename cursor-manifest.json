@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "output": "karpathy-guidelines.mdc",
+      "guideline": "karpathy.md",
+      "description": "Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code.",
+      "alwaysApply": true
+    },
+    {
+      "output": "react-readability-conventions.mdc",
+      "guideline": "react-readability.md",
+      "description": "React/UI 与 *Api 可读性约定（少抽象、少 useEffect 业务链、入口注释）",
+      "alwaysApply": false,
+      "globs": ["src/**/*.tsx", "src/**/*Api.ts"]
+    },
+    {
+      "output": "response-modified-files-summary.mdc",
+      "guideline": "response-modified-files.md",
+      "description": "改代码后在回复末尾用表格列出修改的文件及简要说明",
+      "alwaysApply": true
+    },
+    {
+      "output": "git-commit-message-continuity.mdc",
+      "guideline": "git-commit-mr.md",
+      "description": "连续提交时在 feat 文案末尾追加序号；合代码只推功能分支并建 MR/PR 草稿或给出链接，不直接 merge/push 到其它分支",
+      "alwaysApply": true
+    }
+  ]
+}
