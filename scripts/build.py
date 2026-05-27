@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""方案 B：各 Agent 产物在 generated/<agent-id>/ 下，构建时只清空该子目录。"""
+"""方案 B：各 Agent 产物在 generated/<agent-id>/ 下（可见目录名），构建时只清空该子目录。"""
 from __future__ import annotations
 
 import argparse
@@ -81,7 +81,7 @@ def prepare_agent_dir(agent: dict) -> Path:
 
 def build_cursor(agent: dict, cursor_manifest: dict) -> list[Path]:
     base = prepare_agent_dir(agent)
-    rules_dir = base / ".cursor" / "rules"
+    rules_dir = base / agent["dir"]
     rules_dir.mkdir(parents=True, exist_ok=True)
     written: list[Path] = []
     for rule in cursor_manifest["rules"]:
@@ -114,15 +114,18 @@ def find_agent(manifest: dict, agent_id: str) -> dict:
     raise SystemExit(f"Unknown agent: {agent_id!r}\nAvailable: {known}")
 
 
-def artifact_label(agent: dict) -> str:
+def build_output_label(agent: dict) -> str:
     if agent.get("type") == "cursor":
-        return ".cursor/rules/*.mdc"
+        return f"{agent['dir']}/*.mdc"
     return agent["file"]
 
 
 def print_copy_hint(agent: dict, written: list[Path]) -> None:
     base = agent_dir(agent)
     rel_base = base.relative_to(ROOT)
+    install = Path(agent["installTo"])
+    project = "/path/to/your-project"
+
     print()
     print(f"Built {agent['name']} -> {rel_base}/")
     for path in written:
@@ -130,20 +133,21 @@ def print_copy_hint(agent: dict, written: list[Path]) -> None:
     print()
     print("Copy to your project:")
     if agent.get("type") == "cursor":
-        print(f"  cp -R {rel_base}/.cursor /path/to/your-project/")
+        print(f"  mkdir -p {project}/{install.parent}")
+        print(f"  cp -R {rel_base}/{agent['dir']} {project}/{install.parent}/")
+    elif install.name == Path(agent["file"]).name and len(install.parts) == 1:
+        print(f"  cp {rel_base}/{agent['file']} {project}/")
     else:
-        rel_file = Path(agent["file"])
-        if len(rel_file.parts) == 1:
-            print(f"  cp {rel_base}/{agent['file']} /path/to/your-project/")
-        else:
-            print(f"  cp -R {rel_base}/{rel_file.parts[0]} /path/to/your-project/")
+        print(f"  mkdir -p {project}/{install.parent}")
+        print(f"  cp {rel_base}/{agent['file']} {project}/{install}")
 
 
 def list_agents(manifest: dict) -> None:
     print("Available agents (each writes only to generated/<id>/):")
     for agent in manifest["agents"]:
         print(f"  {agent['id']:<12} {agent['name']}")
-        print(f"               -> generated/{agent['id']}/{artifact_label(agent)}")
+        print(f"               -> generated/{agent['id']}/{build_output_label(agent)}")
+        print(f"               install -> {agent['installTo']}")
     print()
     print("Usage: python3 scripts/build.py <agent-id>")
 

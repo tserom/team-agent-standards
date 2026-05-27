@@ -4,49 +4,58 @@
     {
       "id": "cursor",
       "name": "Cursor",
-      "type": "cursor"
+      "type": "cursor",
+      "dir": "rules",
+      "installTo": ".cursor/rules"
     },
     {
       "id": "claude",
       "name": "Claude Code",
       "file": "CLAUDE.md",
-      "header": "CLAUDE.header.md"
+      "header": "CLAUDE.header.md",
+      "installTo": "CLAUDE.md"
     },
     {
       "id": "copilot",
       "name": "GitHub Copilot",
-      "file": ".github/copilot-instructions.md",
-      "header": "copilot.header.md"
+      "file": "github/copilot-instructions.md",
+      "header": "copilot.header.md",
+      "installTo": ".github/copilot-instructions.md"
     },
     {
       "id": "agents-md",
       "name": "AGENTS.md（Copilot Agent / Codex 等）",
       "file": "AGENTS.md",
-      "header": "AGENTS.header.md"
+      "header": "AGENTS.header.md",
+      "installTo": "AGENTS.md"
     },
     {
       "id": "windsurf",
       "name": "Windsurf",
-      "file": ".windsurfrules",
-      "header": "windsurf.header.md"
+      "file": "windsurfrules",
+      "header": "windsurf.header.md",
+      "installTo": ".windsurfrules"
     },
     {
       "id": "cline",
       "name": "Cline",
-      "file": ".clinerules",
-      "header": "cline.header.md"
+      "file": "clinerules",
+      "header": "cline.header.md",
+      "installTo": ".clinerules"
     },
     {
       "id": "aider",
       "name": "Aider",
       "file": "CONVENTIONS.md",
-      "header": "aider.header.md"
+      "header": "aider.header.md",
+      "installTo": "CONVENTIONS.md"
     },
     {
       "id": "continue",
       "name": "Continue",
-      "file": ".continue/rules/team-standards.md",
-      "header": "continue.header.md"
+      "file": "continue/rules/team-standards.md",
+      "header": "continue.header.md",
+      "installTo": ".continue/rules/team-standards.md"
     }
   ]
 }
