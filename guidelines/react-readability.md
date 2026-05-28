@@ -29,6 +29,7 @@ async function handleClearSelection(rows: any[]) {
 ## 3. API 集中在 `*Api.ts`
 
 - 请求、列表合并、复杂业务计算放在 `services/*Api.ts`，**不在**列 render / Section 里重复写。
+- **何时抽象 / 封装 / 复用（L0–L3）**：遵守 [api-layering.md](api-layering.md)（团队真源 `guidelines/api-layering.md`）。
 - 文件顶部维护 **入口索引表**（约 5～10 行）：**用户场景 → export 函数名 → 主要接口 → 是否刷新哪些列表**。
 - 复杂 export 函数体开头用步骤注释：`// 1. …  2. …  3. refresh …`。
 - 若项目有 OpenSpec / 内部调用清单 md，长函数名与索引以该文档为准。

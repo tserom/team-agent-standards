@@ -1,10 +1,15 @@
 # team-agent-standards
 
-比升前端 · AI 协作规范真源。**方案 B**：各 Agent 在 `generated/<agent-id>/` 下生成**可见**目录，复制到业务项目时再放到 `.cursor` 等工具要求的路径。
+团队 · 跨项目 AI 协作规范真源。**方案 B**：各 Agent 在 `generated/<agent-id>/` 下生成**可见**目录，复制到业务项目时再放到 `.cursor` 等工具要求的路径。
+
+**仓库职能与目录说明** → [docs/REPOSITORY_STRUCTURE.md](docs/REPOSITORY_STRUCTURE.md)  
+**何时把规则/Skill 晋升到本仓库** → `guidelines/promote-to-team-standards.md`（构建为 Cursor 规则 `promote-to-team-standards.mdc`）
 
 | 层级 | 说明 |
 |------|------|
-| **`guidelines/*.md`** | 唯一真源 |
+| **`guidelines/*.md`** | 唯一真源（含 `api-layering.md`、Karpathy、React 可读性等） |
+| **`docs/standards/*.md`** | API 分层等人读长文（与 `guidelines` 配套，非构建真源） |
+| **`docs/skills/`** | 可复用 Skill 模板（手动复制到业务 `.cursor/skills/`） |
 | `cursor-manifest.json` | Cursor → `.mdc` |
 | `agent-manifest.json` | 构建路径与 `installTo` 对照 |
 | `generated/<id>/` | 构建产物（git 忽略） |

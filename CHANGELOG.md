@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Added
+
+- `guidelines/api-layering.md`：API 分层（抽象/封装/复用）L0–L3 与 5 问决策；对应 Cursor 规则 `api-layering-decision.mdc`（`alwaysApply: true`）。
+- `docs/standards/api-abstraction-encapsulation-reuse*.md`：完整规范与一页纸（中/英）。
+- `docs/REPOSITORY_STRUCTURE.md`：本仓库职能与各目录说明。
+- `guidelines/promote-to-team-standards.md` + `promote-to-team-standards.mdc`：Agent 在可复用规则/Skill 时提醒晋升团队真源。
+- `docs/skills/README.md`：团队 Skill 模板目录约定。
+
 ### Changed
 
 - 构建产物改为可见路径（如 `generated/cursor/rules/`，不再生成隐藏的 `.cursor` 目录）。

@@ -25,6 +25,18 @@
       "guideline": "git-commit-mr.md",
       "description": "连续提交时在 feat 文案末尾追加序号；合代码只推功能分支并建 MR/PR 草稿或给出链接，不直接 merge/push 到其它分支",
       "alwaysApply": true
+    },
+    {
+      "output": "api-layering-decision.mdc",
+      "guideline": "api-layering.md",
+      "description": "前端 API 层如何决定抽象/封装/复用（L0–L3）；实现 *Api.ts / services 前必读",
+      "alwaysApply": true
+    },
+    {
+      "output": "promote-to-team-standards.mdc",
+      "guideline": "promote-to-team-standards.md",
+      "description": "可复用规则/Skill 时提醒用户是否晋升到 team-agent-standards；说明 guidelines/docs/skills 分工",
+      "alwaysApply": true
     }
   ]
 }
