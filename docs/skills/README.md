@@ -24,8 +24,15 @@ docs/skills/
 - 多个项目会用到同一套**操作步骤**（如 BsSulaQueryTable、页面脚手架）。
 - 内容偏「怎么做」而非「禁止做什么」（禁止类放 `guidelines/`）。
 
+## 已收录模板
+
+| 目录 | 说明 |
+|------|------|
+| [`bssula-query-table/`](bssula-query-table/SKILL.md) | BsSulaQueryTable 查询列表 config、双表、ref、converter；业务仓库复制后补 `LOCAL.md`（见 `LOCAL.example.md`） |
+
 ## 采纳后
 
 1. 在本目录新增 `<skill-name>/SKILL.md` 并 MR。
 2. 在业务项目 `.cursor/skills/` **按目录**复制，例如 `cp -R docs/skills/<skill-name> 项目/.cursor/skills/`（勿 `cp -R docs/skills/` 整目录，以免覆盖项目自有 skill）。
-3. 在 `CHANGELOG.md` 记录。
+3. 若 Skill 含 `LOCAL.example.md`，在业务项目内复制为 `LOCAL.md` 并填本项目路径（`LOCAL.md` 仅留在业务仓库，勿 MR 回 team）。
+4. 在 `CHANGELOG.md` 记录。
