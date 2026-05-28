@@ -58,7 +58,7 @@ team-agent-standards/
 ### `generated/`
 
 - **职能**：构建输出；**禁止**作为编辑真源。
-- **同步**：`cp -R generated/cursor/rules → 业务项目/.cursor/rules/`。
+- **同步**：团队 `.mdc` 增量复制到业务项目 `.cursor/rules/`（`cp generated/cursor/rules/*.mdc …`）；项目已有专用 rules 时勿 `cp -R` 整目录。见 [README.md](../README.md)「增量更新」。
 
 ### 业务项目内应保留什么
 
@@ -114,3 +114,4 @@ team-agent-standards/
 | 加 Cursor 规则文件 | `cursor-manifest.json` + build |
 | 加可安装 Skill 模板 | `docs/skills/` |
 | 查复制到项目的命令 | `README.md`、`docs/other-agents.md` |
+| 项目已有 rules，只更新团队包 | `README.md`「增量更新」、`cp …/*.mdc` |

@@ -133,8 +133,11 @@ def print_copy_hint(agent: dict, written: list[Path]) -> None:
     print()
     print("Copy to your project:")
     if agent.get("type") == "cursor":
-        print(f"  mkdir -p {project}/{install.parent}")
-        print(f"  cp -R {rel_base}/{agent['dir']} {project}/{install.parent}/")
+        rules_glob = f"{rel_base}/{agent['dir']}/*.mdc"
+        print(f"  mkdir -p {project}/{install}")
+        print(f"  # 增量（推荐，保留项目专用 rules）：")
+        print(f"  cp {rules_glob} {project}/{install}/")
+        print(f"  # 首次安装（空目录）：cp -R {rel_base}/{agent['dir']} {project}/{install.parent}/")
     elif install.name == Path(agent["file"]).name and len(install.parts) == 1:
         print(f"  cp {rel_base}/{agent['file']} {project}/")
     else:

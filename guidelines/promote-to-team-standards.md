@@ -51,7 +51,7 @@
 - [ ] `python3 scripts/build.py cursor`（及团队在用的其它 agent id）
 - [ ] `CHANGELOG.md` Unreleased
 - [ ] Skill 则 `docs/skills/<name>/SKILL.md` + 更新 `docs/skills/README.md`
-- [ ] 告知用户：合并后在各业务项目 `cp -R generated/cursor/rules → .cursor/rules/`
+- [ ] 告知用户：合并后在各业务项目增量同步团队 `.mdc`（`cp generated/cursor/rules/*.mdc → .cursor/rules/`，见 team 仓库 README「增量更新」）
 
 **禁止**：只把团队通用内容写在 `~/.cursor/rules` 或单一业务仓库而不提醒 team 真源。
 

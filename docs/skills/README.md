@@ -27,5 +27,5 @@ docs/skills/
 ## 采纳后
 
 1. 在本目录新增 `<skill-name>/SKILL.md` 并 MR。
-2. 在业务项目 `.cursor/skills/` 复制或文档中写明路径。
+2. 在业务项目 `.cursor/skills/` **按目录**复制，例如 `cp -R docs/skills/<skill-name> 项目/.cursor/skills/`（勿 `cp -R docs/skills/` 整目录，以免覆盖项目自有 skill）。
 3. 在 `CHANGELOG.md` 记录。

@@ -12,6 +12,9 @@
 
 ### Changed
 
+- README / `docs/other-agents.md`：区分 Cursor 首次安装与**增量更新**（`cp …/*.mdc`，避免覆盖项目专用 rules）。
+- `build.py` 构建结束提示默认打印增量复制命令。
+
 - 构建产物改为可见路径（如 `generated/cursor/rules/`，不再生成隐藏的 `.cursor` 目录）。
 - 构建输出改为 `generated/<agent-id>/` 分目录，不再提供安装脚本。
 - **方案 B**：各 Agent 产物在 `generated/<agent-id>/` 下，构建只清空该子目录。

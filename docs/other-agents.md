@@ -41,15 +41,29 @@ generated/
 
 ```bash
 python3 scripts/build.py cursor
+```
 
+**首次**（尚无 rules）：
+
+```bash
 mkdir -p /path/to/your-app/.cursor
 cp -R generated/cursor/rules /path/to/your-app/.cursor/
 ```
 
+**增量**（已有项目专用 `.mdc`，只更新团队文件）：
+
+```bash
+mkdir -p /path/to/your-app/.cursor/rules
+cp generated/cursor/rules/*.mdc /path/to/your-app/.cursor/rules/
+# 暂不想覆盖本地同名：cp -n generated/cursor/rules/*.mdc …
+```
+
+详见 [README.md](../README.md)「增量更新」。
+
 ## 注意
 
 - 若本地仍有旧版 `generated/cursor/.cursor/`，重新 build 一次即可，或手动删除。
-- 业务专用规则仍放在各业务仓库。
+- 业务专用规则仍放在各业务仓库（与团队 `.mdc` 同目录、不同文件名）；领域规则优先于团队通则。
 
 ## 更新流程
 
