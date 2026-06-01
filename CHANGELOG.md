@@ -4,6 +4,10 @@
 
 ### Added
 
+- `guidelines/receipt-batch-detail-tab.md` + `receipt-batch-detail-tab.mdc`：收货批次明细 Tab（新列表 URL、仅 `qp-sourceRecordCode-eq`、行字段同 other-in）。
+- `docs/standards/receipt-batch-detail-tab.md`：人读完整版（接口差异、列、Link 字段表）。
+- `docs/skills/receipt-batch-detail-tab/SKILL.md` + `LOCAL.example.md`：实现流程与业务项目 LOCAL 模板。
+
 - `guidelines/api-layering.md`：API 分层（抽象/封装/复用）L0–L3 与 5 问决策；对应 Cursor 规则 `api-layering-decision.mdc`（`alwaysApply: true`）。
 - `docs/standards/api-abstraction-encapsulation-reuse*.md`：完整规范与一页纸（中/英）。
 - `docs/REPOSITORY_STRUCTURE.md`：本仓库职能与各目录说明。

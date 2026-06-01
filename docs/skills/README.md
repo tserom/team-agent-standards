@@ -29,6 +29,7 @@ docs/skills/
 | 目录 | 说明 |
 |------|------|
 | [`bssula-query-table/`](bssula-query-table/SKILL.md) | BsSulaQueryTable 查询列表 config、双表、ref、converter；业务仓库复制后补 `LOCAL.md`（见 `LOCAL.example.md`） |
+| [`receipt-batch-detail-tab/`](receipt-batch-detail-tab/SKILL.md) | 详情页收货批次明细 Tab：批次总开关、新列表接口（仅 sourceRecordCode）、自适应列、通知单/结果单跳转 |
 
 ## 采纳后
 

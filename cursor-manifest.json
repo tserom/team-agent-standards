@@ -37,6 +37,13 @@
       "guideline": "promote-to-team-standards.md",
       "description": "可复用规则/Skill 时提醒用户是否晋升到 team-agent-standards；说明 guidelines/docs/skills 分工",
       "alwaysApply": true
+    },
+    {
+      "output": "receipt-batch-detail-tab.mdc",
+      "guideline": "receipt-batch-detail-tab.md",
+      "description": "详情页收货批次明细 Tab：STOCKBATCH_ENABLED、新列表仅 qp-sourceRecordCode-eq、批次自适应列、通知单/结果单 Link（字段同 other-in）",
+      "alwaysApply": false,
+      "globs": ["src/**/*Api.ts", "src/**/services/**", "src/pages/**/detail*.tsx", "src/pages/**/create.tsx", "src/pages/**/*Section*.tsx", "src/pages/**/*Batch*.tsx"]
     }
   ]
 }
