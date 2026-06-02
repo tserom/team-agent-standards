@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- `docs/skills/bssula-query-table/SKILL.md`：新增「切换视图保留查询条件」模式 A（Tab + pendingQueryFieldSyncRef）/ 模式 B（条件渲染 + requestParamsRef + initialValues）；`LOCAL.example.md` 补 stock-front 参考页。
+
 ### Added
 
 - `guidelines/receipt-batch-detail-tab.md` + `receipt-batch-detail-tab.mdc`：收货批次明细 Tab（新列表 URL、仅 `qp-sourceRecordCode-eq`、行字段同 other-in）。
