@@ -4,7 +4,8 @@ description: >-
   Bit-Sun BsSulaQueryTable 查询列表 config 真源：remoteDataSource、fields、columns、
   initialValues、rules、formProps、ref、列表/明细双表、分页 converter。
   Use when implementing or fixing BsSulaQueryTable, SulaQueryTable, 查询表格, 列表模式,
-  明细模式, qp- remark-like, validateQueryFields, refreshTable, tableRef.
+  明细模式, qp- remark-like, validateQueryFields, refreshTable, tableRef,
+  切换视图保留查询, Segmented 汇总批次, initialValues requestParamsRef.
 disable-model-invocation: false
 ---
 
@@ -17,6 +18,7 @@ disable-model-invocation: false
 - 页面或 Modal 中的 `BsSulaQueryTable` / `SulaQueryTable`
 - `config` / `detailConfig` 传给 `<BsSulaQueryTable {...config} />`
 - Tab 下双表（列表模式 + 明细模式）
+- **同一页 Segmented / 条件渲染切换多张 `BsSulaQueryTable`，切换后查询条件要保留**
 - 查询区 `fields`、`initialValues`、`rules`、`formProps`
 - `tableRef.current?.tableRef?.current?.refreshTable()` 等 ref 链
 
@@ -154,7 +156,7 @@ formProps: {
 },
 ```
 
-## 列表 + 明细双表
+## 列表 + 明细双表（Tab，两表同页挂载）
 
 ```ts
 const detailConfig = {
@@ -173,7 +175,80 @@ const detailConfig = {
 ```
 
 - `...config` 会继承 `initialValues`、`fields`；明细只换 `columns` / `remoteDataSource`。
-- Tab 切换要带查询条件时，用 **pendingQueryFieldSyncRef**（或项目 page-scaffold Skill 中的 List/Detail 模式）；**不要**在 `convertParams` 里偷塞 ref 条件。
+- Tab 切换要带查询条件时，用 **pendingQueryFieldSyncRef**（见下 §「切换视图保留查询条件 · 模式 A」）。
+
+## 切换视图保留查询条件
+
+**先判断挂载方式**，再选模式（不要混用）：
+
+| 场景 | 两表是否同时挂载 | 推荐模式 |
+|------|------------------|----------|
+| 列表页 Tab「列表 / 明细」 | 是（或 ref 可跨 Tab 读表单） | **A · pendingQueryFieldSyncRef** |
+| Segmented「批次 / 汇总」等 **条件渲染只挂一张表** | 否（切视图会卸载旧表） | **B · requestParamsRef + initialValues** |
+
+### 模式 A · Tab 双表（pendingQueryFieldSyncRef）
+
+切换前读离开表的 `formRef.getFieldsValue()`，写入 `pendingQueryFieldSyncRef`；`useEffect` 依赖 activeKey，在新表 `setFieldsValue` 后 `refreshTable`。
+
+**参考页**：见业务项目 `LOCAL.md`（列表/明细 Tab 页）。
+
+### 模式 B · 条件渲染双视图（requestParamsRef + initialValues）✅ 已测
+
+适用：`{ viewMode === 'summary' ? <BsSulaQueryTable … /> : <BsSulaQueryTable … /> }`（Segmented 切换会卸载旧表）。
+
+**参考页**：见业务项目 `LOCAL.md`（Segmented 双视图组件）。
+
+**三步（新增查询 field 时同步扩展 qp 键即可）：**
+
+**1. 每个视图一个 ref，存该表最近一次请求的 params**
+
+```tsx
+const summaryRequestParamsRef = useRef<any>({});
+const batchRequestParamsRef = useRef<any>({});
+```
+
+**2. `remoteDataSource.convertParams` 链式追加，查询时写入 ref**
+
+```tsx
+convertParams: [
+  { type: 'tableConvertParamsType', initialParams: { /* 视图固定 qp */ } },
+  (ctx: any) => {
+    batchRequestParamsRef.current = ctx.params;
+    return ctx.params;
+  },
+],
+```
+
+**3. 切换 Segmented 时拷贝 qp；新挂载表用 `initialValues` 回显**
+
+```tsx
+const handleViewModeChange = (v: 'batch' | 'summary') => {
+  setDetailViewMode(v);
+  if (v === 'summary') {
+    summaryRequestParamsRef.current['qp-skuCode-in'] =
+      batchRequestParamsRef.current?.['qp-skuCode-in'];
+  }
+  if (v === 'batch') {
+    batchRequestParamsRef.current['qp-skuCode-in'] =
+      summaryRequestParamsRef.current?.['qp-skuCode-in'];
+  }
+};
+
+<BsSulaQueryTable
+  initialValues={{
+    'qp-skuCode-in': summaryRequestParamsRef.current?.['qp-skuCode-in'],
+  }}
+  remoteDataSource={summaryRemoteDataSource}
+  fields={DETAIL_QUERY_FIELDS}
+  /* … */
+/>
+```
+
+**注意：**
+
+- 模式 B **不要**用模式 A 的 `pendingQueryFieldSyncRef` + `useEffect`（卸载后读不到旧表 formRef，写法更重）。
+- 模式 B **不要**只在 `convertParams` 里偷塞 ref 当查询默认值而不配 `initialValues`（新表挂载时表单为空）。
+- 扩展多个查询项：在 `handleViewModeChange` 里逐个拷贝 qp 键，`initialValues` 带上同名字段。
 
 ## convertParams / 查询参数
 
@@ -197,10 +272,11 @@ const detailConfig = {
 | 场景 | 在本项目搜索 |
 |------|----------------|
 | 双 Tab 列表+明细 | `detailConfig` + `Tabs` + 两个 `BsSulaQueryTable` |
+| Tab 切换保留查询（模式 A） | `pendingQueryFieldSyncRef` · 见 LOCAL.md |
+| Segmented 切换保留查询（模式 B） | `requestParamsRef` + `initialValues` · 见 LOCAL.md |
 | 查询必填（多条件二选一） | `validateQueryFields` + 自定义 `formProps.actionsRender` |
 | `autoInit: false` + 自定义查询 | `autoInit` + 自定义查询按钮 action |
 | 默认 `initialValues` | `initialValues` + `rangepicker` |
-| 列表明细查询同步 | `pendingQueryFieldSyncRef` 或 page-scaffold 文档 |
 
 ## 自检
 
@@ -208,5 +284,6 @@ const detailConfig = {
 - [ ] 必填是否用 `fields[].rules`，而非多余 `formProps`？
 - [ ] `converter` 的 `list` 是否为数组？
 - [ ] 双表是否 `...config` 继承查询区？
+- [ ] **切换视图要保留查询**：条件渲染单表 → 模式 B；Tab 双表同挂 → 模式 A？
 - [ ] ref 是否为 `tableRef.current?.tableRef?.current`？
 - [ ] import 是否用了**本项目**封装路径（见 LOCAL.md）？

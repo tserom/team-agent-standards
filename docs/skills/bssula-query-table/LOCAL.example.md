@@ -35,9 +35,17 @@ Agent 读 Skill 时：**先读 `SKILL.md`（通用）→ 再读同目录 `LOCAL.
 | 场景 | 路径 |
 |------|------|
 | 双 Tab 列表+明细 + initialValues | `InventoryCenter/DocumentsQuery/StandardDocumentsQuery/ReceiptDeliverNotice/index.tsx` |
+| **Segmented 切换保留查询（模式 B · 条件渲染）** | **`InventoryCenter/StoreManagement/OtherIn/components/OtherInBatchDetailSection.tsx`**（汇总/批次，已测 OK） |
+| Tab 切换保留查询（模式 A） | `InventoryCenter/StoreManagement/OtherIn/index.tsx`、`OtherOut/index.tsx` |
 | 多条件二选一查询 | `InventoryCenter/StoreManagement/UniqueCodeFlowRecord/posIndex.tsx` |
 | autoInit + 自定义查询 | `InventoryCenter/InventoryManagement/InventoryQueueLog/index.tsx` |
-| 列表明细 Tab 同步 | `InventoryCenter/StoreManagement/OtherOut/index.tsx`、`InventoryCenter/StoreManagement/OtherIn/index.tsx` |
+
+## 切换视图 · 选型速记
+
+| 挂载方式 | 用法 |
+|----------|------|
+| Tab 两表同页 | 模式 A · `pendingQueryFieldSyncRef` |
+| `{mode ? <TableA/> : <TableB/>}` 只挂一张 | 模式 B · `*RequestParamsRef` + `convertParams` 写 ref + `initialValues` |
 
 ## 关联 Skill
 
