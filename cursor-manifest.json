@@ -29,7 +29,7 @@
     {
       "output": "api-layering-decision.mdc",
       "guideline": "api-layering.md",
-      "description": "前端 API 层如何决定抽象/封装/复用（L0–L3）；实现 *Api.ts / services 前必读",
+      "description": "前端 API 层 L0–L3；响应字段契约（禁止未声明业务字段 ?? 链）；实现 *Api.ts / services 前必读",
       "alwaysApply": true
     },
     {
@@ -41,7 +41,7 @@
     {
       "output": "receipt-batch-detail-tab.mdc",
       "guideline": "receipt-batch-detail-tab.md",
-      "description": "详情页收货批次明细 Tab：STOCKBATCH_ENABLED、新列表仅 qp-sourceRecordCode-eq、批次自适应列、通知单/结果单 Link（字段同 other-in）",
+      "description": "详情页收货批次明细 Tab：STOCKBATCH_ENABLED、新列表接口、*ReceiptBatchRow 显式字段、回退登记表；勿照搬 other-in 字段链",
       "alwaysApply": false,
       "globs": ["src/**/*Api.ts", "src/**/services/**", "src/pages/**/detail*.tsx", "src/pages/**/create.tsx", "src/pages/**/*Section*.tsx", "src/pages/**/*Batch*.tsx"]
     }
