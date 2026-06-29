@@ -11,6 +11,8 @@
 
 ### Added
 
+- `guidelines/api-query-predicate-params.md` + `api-query-predicate-params.mdc`：API 查询谓词参数 `qp-<field>-<operator>`，统一公开 API 字段名、后端白名单映射与 v1 操作符边界。
+- `docs/standards/api-query-predicate-params.md`：人读完整版（字段名规则、后端/前端契约、SQL 类比、接口文档模板、CR 清单）。
 - `guidelines/receipt-batch-detail-tab.md` + `receipt-batch-detail-tab.mdc`：收货批次明细 Tab（新列表 URL、仅 `qp-sourceRecordCode-eq`、行字段同 other-in）。
 - `docs/standards/receipt-batch-detail-tab.md`：人读完整版（接口差异、列、Link 字段表）。
 - `docs/skills/receipt-batch-detail-tab/SKILL.md` + `LOCAL.example.md`：实现流程与业务项目 LOCAL 模板。

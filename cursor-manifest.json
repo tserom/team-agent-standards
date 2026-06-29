@@ -33,6 +33,12 @@
       "alwaysApply": true
     },
     {
+      "output": "api-query-predicate-params.mdc",
+      "guideline": "api-query-predicate-params.md",
+      "description": "API 查询谓词参数 qp-<field>-<operator>：field 用公开 API 字段名，后端白名单映射，禁止暴露数据库列名或拼 SQL",
+      "alwaysApply": true
+    },
+    {
       "output": "promote-to-team-standards.mdc",
       "guideline": "promote-to-team-standards.md",
       "description": "可复用规则/Skill 时提醒用户是否晋升到 team-agent-standards；说明 guidelines/docs/skills 分工",
