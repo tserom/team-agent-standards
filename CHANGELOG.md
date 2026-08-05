@@ -4,6 +4,7 @@
 
 ### Changed
 
+- `docs/skills/bssula-query-table/SKILL.md`：**切换视图**改为轻量索引（Tab 定稿 remount-init；禁 `useEffect([activeKey])`）；长文/踩坑指向知识库 `kb/domains/company-react/tab-query-sync.md`，不再在 Skill 内展开模式 B 三步长文。`LOCAL.example.md` 同步。
 - `guidelines/api-layering.md` + `api-layering-decision.mdc`：§响应字段契约；禁止未声明业务字段 `??` 链；回退须登记并单列待确认；PR 勾选 +1。
 - `docs/standards/api-abstraction-encapsulation-reuse.md` §3.4：响应字段契约、回退登记表、CR 清单增补（v1.1）。
 - `guidelines/receipt-batch-detail-tab.md` + standard + skill：other-in 与业务域 VO 分表；`*ReceiptBatchRow`；回退登记表模板；修正「字段同 other-in」表述。

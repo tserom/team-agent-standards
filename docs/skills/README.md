@@ -28,7 +28,7 @@ docs/skills/
 
 | 目录 | 说明 |
 |------|------|
-| [`bssula-query-table/`](bssula-query-table/SKILL.md) | BsSulaQueryTable 查询列表 config、双表、ref、converter、**切换视图保留查询（模式 A/B）**；业务仓库复制后补 `LOCAL.md`（见 `LOCAL.example.md`） |
+| [`bssula-query-table/`](bssula-query-table/SKILL.md) | BsSulaQueryTable config 索引（双表 / converter / **切换视图轻量选型**）；细节见知识库 `tab-query-sync.md`；业务仓补 `LOCAL.md` |
 | [`receipt-batch-detail-tab/`](receipt-batch-detail-tab/SKILL.md) | 详情页收货批次明细 Tab：批次总开关、新列表接口、`*ReceiptBatchRow` 显式字段、回退登记表 |
 
 ## 采纳后

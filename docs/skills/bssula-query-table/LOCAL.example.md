@@ -35,8 +35,9 @@ Agent 读 Skill 时：**先读 `SKILL.md`（通用）→ 再读同目录 `LOCAL.
 | 场景 | 路径 |
 |------|------|
 | 双 Tab 列表+明细 + initialValues | `InventoryCenter/DocumentsQuery/StandardDocumentsQuery/ReceiptDeliverNotice/index.tsx` |
-| **Segmented 切换保留查询（模式 B · 条件渲染）** | **`InventoryCenter/StoreManagement/OtherIn/components/OtherInBatchDetailSection.tsx`**（汇总/批次，已测 OK） |
-| Tab 切换保留查询（模式 A） | `InventoryCenter/StoreManagement/OtherIn/index.tsx`、`OtherOut/index.tsx` |
+| **Segmented 切换保留查询（模式 B）** | **`InventoryCenter/StoreManagement/OtherIn/components/OtherInBatchDetailSection.tsx`**（汇总/批次） |
+| **Tab 切换保留查询（模式 A · remount-init 定稿）** | **`InventoryCenter/RepairManagement/RepairOrder/index.tsx`** |
+| Tab 切换（旧 reuse，勿作新页范本） | `InventoryCenter/StoreManagement/OtherIn/index.tsx`、`OtherOut/index.tsx` |
 | 多条件二选一查询 | `InventoryCenter/StoreManagement/UniqueCodeFlowRecord/posIndex.tsx` |
 | autoInit + 自定义查询 | `InventoryCenter/InventoryManagement/InventoryQueueLog/index.tsx` |
 
@@ -44,8 +45,10 @@ Agent 读 Skill 时：**先读 `SKILL.md`（通用）→ 再读同目录 `LOCAL.
 
 | 挂载方式 | 用法 |
 |----------|------|
-| Tab 两表同页 | 模式 A · `pendingQueryFieldSyncRef` |
-| `{mode ? <TableA/> : <TableB/>}` 只挂一张 | 模式 B · `*RequestParamsRef` + `convertParams` 写 ref + `initialValues` |
+| Tab 列表/明细 | **remount-init**（定稿）→ 维修单；细节见 kb `domains/company-react/tab-query-sync.md` |
+| `{mode ? <TableA/> : <TableB/>}` 只挂一张 | 模式 B · `*RequestParamsRef` + `initialValues` → 入/出库 BatchDetailSection |
+
+> Agent：切换/回填/两次 loading 等**长文与踩坑只维护 kb**，此处与团队 `SKILL.md` 仅作索引。
 
 ## 关联 Skill
 
