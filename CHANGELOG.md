@@ -2,7 +2,15 @@
 
 ## Unreleased
 
+### Added
+
+- `guidelines/bs-button-import-excel.md` + `bs-button-import-excel.mdc`：公司列表 Excel 导入优先 `bs-buttonImportExcel`（选型表、MUST/NOT、最小配置骨架）。
+- `docs/standards/bs-button-import-excel.md`：人读完整版（字段速查、后端 ImportResVo 约定、其它导入方式对照）。
+
 ### Changed
+
+- `docs/skills/bssula-query-table/SKILL.md`：`actionsRender` 补 Excel 导入入口，链到 standards / guidelines / kb。
+- `docs/skills/README.md`：bssula-query-table 行注明导入长文路径。
 
 - `docs/skills/bssula-query-table/SKILL.md`：**切换视图**改为轻量索引（Tab 定稿 remount-init；禁 `useEffect([activeKey])`）；长文/踩坑指向知识库 `kb/domains/company-react/tab-query-sync.md`，不再在 Skill 内展开模式 B 三步长文。`LOCAL.example.md` 同步。
 - `guidelines/api-layering.md` + `api-layering-decision.mdc`：§响应字段契约；禁止未声明业务字段 `??` 链；回退须登记并单列待确认；PR 勾选 +1。
