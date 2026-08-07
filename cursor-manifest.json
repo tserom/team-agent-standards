@@ -50,6 +50,18 @@
       "description": "详情页收货批次明细 Tab：STOCKBATCH_ENABLED、新列表接口、*ReceiptBatchRow 显式字段、回退登记表；勿照搬 other-in 字段链",
       "alwaysApply": false,
       "globs": ["src/**/*Api.ts", "src/**/services/**", "src/pages/**/detail*.tsx", "src/pages/**/create.tsx", "src/pages/**/*Section*.tsx", "src/pages/**/*Batch*.tsx"]
+    },
+    {
+      "output": "bs-button-import-excel.mdc",
+      "guideline": "bs-button-import-excel.md",
+      "description": "公司列表 Excel 导入优先 bs-buttonImportExcel；选型表与 MUST/NOT；勿无故新开导入页",
+      "alwaysApply": false,
+      "globs": [
+        "src/pages/**/index.tsx",
+        "src/pages/**/list.tsx",
+        "src/plugins/**/BsButtonImportExcel/**",
+        "src/pages/**/*Import*.tsx"
+      ]
     }
   ]
 }

@@ -70,10 +70,12 @@ const config = {
 | `fields` | 查询表单；参数名 `qp-字段-like/eq/in`、日期 `qp-a-ge*fullDate*qp-b-le` |
 | `initialValues` | **查询区默认值**（见下） |
 | `columns` | 列；`key` 与接口字段一致；`render` / `dictionaryCode` |
-| `actionsRender` | 工具栏按钮（导出、新增等） |
+| `actionsRender` | 工具栏按钮（导出、新增、Excel 导入等） |
 | `formProps` | **仅**在默认查询按钮不够用时覆盖（见下） |
 | `rowSelection` / `summaryList` / `statusMapping` | 按页 |
 | `autoInit: false` | 禁止挂载自动查；需用户点查询（配合自定义校验） |
+
+**Excel 导入**：列表工具栏优先 `type: 'bs-buttonImportExcel'`。短规则 `guidelines/bs-button-import-excel.md`；人读长文 `docs/standards/bs-button-import-excel.md`；环境样例可对照 kb `domains/company-react/bs-button-import-excel.md`。
 
 ## Ref 与刷新
 

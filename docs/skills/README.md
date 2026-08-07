@@ -28,7 +28,7 @@ docs/skills/
 
 | 目录 | 说明 |
 |------|------|
-| [`bssula-query-table/`](bssula-query-table/SKILL.md) | BsSulaQueryTable config 索引（双表 / converter / **切换视图轻量选型**）；细节见知识库 `tab-query-sync.md`；业务仓补 `LOCAL.md` |
+| [`bssula-query-table/`](bssula-query-table/SKILL.md) | BsSulaQueryTable config 索引（双表 / converter / **切换视图轻量选型**）；细节见知识库 `tab-query-sync.md`；业务仓补 `LOCAL.md`；**Excel 导入**链到 `docs/standards/bs-button-import-excel.md` |
 | [`receipt-batch-detail-tab/`](receipt-batch-detail-tab/SKILL.md) | 详情页收货批次明细 Tab：批次总开关、新列表接口、`*ReceiptBatchRow` 显式字段、回退登记表 |
 
 ## 采纳后
