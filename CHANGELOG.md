@@ -4,6 +4,9 @@
 
 ### Added
 
+- `guidelines/table-summary-field-map.md` + `table-summary-field-map.mdc`：列表 summary / 导出合计 / 后端汇总按公开字段 key 映射，禁止 `colSpan`/下标/空串占位。
+- `docs/standards/table-summary-field-map.md`：人读完整版（成因、MUST/NOT、横跨文案、CR 清单）。
+
 - `guidelines/antd-input-number-select-on-focus.md` + `antd-input-number-select-on-focus.mdc`：antd 可编辑 `InputNumber` 默认聚焦全选（`requestAnimationFrame` + `select`）；优先项目封装。
 - `docs/standards/antd-input-number-select-on-focus.md`：人读配套（边界、校验、销售单范本路径）。
 
