@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+- `guidelines/antd-input-number-select-on-focus.md` + `antd-input-number-select-on-focus.mdc`：antd 可编辑 `InputNumber` 默认聚焦全选（`requestAnimationFrame` + `select`）；优先项目封装。
+- `docs/standards/antd-input-number-select-on-focus.md`：人读配套（边界、校验、销售单范本路径）。
+
 ### Changed
 
 - `docs/skills/bssula-query-table/SKILL.md`：**切换视图**改为轻量索引（Tab 定稿 remount-init；禁 `useEffect([activeKey])`）；长文/踩坑指向知识库 `kb/domains/company-react/tab-query-sync.md`，不再在 Skill 内展开模式 B 三步长文。`LOCAL.example.md` 同步。

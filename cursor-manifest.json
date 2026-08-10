@@ -15,6 +15,13 @@
       "globs": ["src/**/*.tsx", "src/**/*Api.ts"]
     },
     {
+      "output": "antd-input-number-select-on-focus.mdc",
+      "guideline": "antd-input-number-select-on-focus.md",
+      "description": "antd InputNumber 聚焦全选，避免每次先清 0.00；优先用项目封装",
+      "alwaysApply": false,
+      "globs": ["**/*.{tsx,jsx}"]
+    },
+    {
       "output": "response-modified-files-summary.mdc",
       "guideline": "response-modified-files.md",
       "description": "改代码后在回复末尾用表格列出修改的文件及简要说明",
