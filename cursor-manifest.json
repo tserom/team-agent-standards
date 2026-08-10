@@ -57,6 +57,20 @@
       "description": "详情页收货批次明细 Tab：STOCKBATCH_ENABLED、新列表接口、*ReceiptBatchRow 显式字段、回退登记表；勿照搬 other-in 字段链",
       "alwaysApply": false,
       "globs": ["src/**/*Api.ts", "src/**/services/**", "src/pages/**/detail*.tsx", "src/pages/**/create.tsx", "src/pages/**/*Section*.tsx", "src/pages/**/*Batch*.tsx"]
+    },
+    {
+      "output": "table-summary-field-map.mdc",
+      "guideline": "table-summary-field-map.md",
+      "description": "表格/导出合计按字段 key 映射，禁止 colSpan/下标数格子；前后端一致",
+      "alwaysApply": false,
+      "globs": [
+        "**/*List*.tsx",
+        "**/*export*.{ts,tsx}",
+        "**/*Export*.{ts,tsx}",
+        "**/*xlsx*.{ts,tsx}",
+        "**/handler/**/*.go",
+        "**/service/**/*.go"
+      ]
     }
   ]
 }
