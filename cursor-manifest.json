@@ -71,6 +71,28 @@
         "**/handler/**/*.go",
         "**/service/**/*.go"
       ]
+    },
+    {
+      "output": "use-effect-prefer-events.mdc",
+      "guideline": "use-effect-prefer-events.md",
+      "description": "useEffect：能不用就不用；不得不用须先提示用户且 effect 极薄",
+      "alwaysApply": true
+    },
+    {
+      "output": "document-list-page-simple.mdc",
+      "guideline": "document-list-page-simple.md",
+      "description": "公司仓单据列表页：目录瘦身、复杂度预算、双视图 remount-init；勿整页抄维修单",
+      "alwaysApply": false,
+      "globs": [
+        "src/pages/**/index.tsx",
+        "src/pages/**/list*.tsx",
+        "src/pages/**/List*.tsx",
+        "**/config/listFields.*",
+        "**/config/listColumns.*",
+        "**/config/detailFields.*",
+        "**/config/detailColumns.*",
+        "**/utils/statusActions.*"
+      ]
     }
   ]
 }

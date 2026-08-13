@@ -4,8 +4,19 @@
 
 ### Added
 
+- `guidelines/use-effect-prefer-events.md` + `use-effect-prefer-events.mdc`（`alwaysApply`）：能不用 `useEffect` 就不用；不得不用须先提示用户且 effect 极薄。
+- `guidelines/document-list-page-simple.md` + `document-list-page-simple.mdc`：公司仓单据列表目录瘦身、复杂度预算、双视图 remount-init、行操作白名单。
+- `docs/standards/document-list-page-simple.md`：人读完整版（自 stock-front 草稿晋升）。
+- `docs/skills/bssula-query-table/SKILL.md`：链到上述列表规范与 useEffect 通则。
+
 - `guidelines/table-summary-field-map.md` + `table-summary-field-map.mdc`：列表 summary / 导出合计 / 后端汇总按公开字段 key 映射，禁止 `colSpan`/下标/空串占位。
 - `docs/standards/table-summary-field-map.md`：人读完整版（成因、MUST/NOT、横跨文案、CR 清单）。
+
+### Changed
+
+- `guidelines/react-readability.md` §2：交叉引用 `use-effect-prefer-events`。
+
+### Added
 
 - `guidelines/antd-input-number-select-on-focus.md` + `antd-input-number-select-on-focus.mdc`：antd 可编辑 `InputNumber` 默认聚焦全选（`requestAnimationFrame` + `select`）；优先项目封装。
 - `docs/standards/antd-input-number-select-on-focus.md`：人读配套（边界、校验、销售单范本路径）。

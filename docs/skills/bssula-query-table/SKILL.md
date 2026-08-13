@@ -177,15 +177,19 @@ const detailConfig = {
 
 | 场景 | 推荐 |
 |------|------|
-| Tab「列表 / 明细」 | **A · remount-init**（`destroyInactiveTabPane` + seed `initialValues` + `onChange` 里 `scheduleApply` 单次 refresh；**不用** `useEffect([activeKey])`） |
+| Tab「列表 / 明细」 | **A · remount-init**（`destroyInactiveTabPane` + seed `initialValues` + `onChange` 里 `scheduleApply` 单次 refresh；优先不用 `useEffect([activeKey])`） |
 | Segmented 等条件渲染只挂一张表 | **B · `requestParamsRef` + `initialValues`** |
+
+单据列表目录/复杂度/行操作白名单：团队 `guidelines/document-list-page-simple.md`（人读 `docs/standards/document-list-page-simple.md`）。  
+`useEffect` 通则：`guidelines/use-effect-prefer-events.md`。
 
 **MUST NOT**
 
-- 用 `useEffect([activeKey])` 隐式串「回填 + 请求」
+- 默认用 `useEffect([activeKey])` 隐式串「回填 + 请求」（能 `onChange`+schedule 就不用；例外见 prefer-events）
 - Tab 侧默认 `autoInit` 空查一遍再同步查一遍（两次 loading）
 - 模式 B 只靠 `convertParams` 偷塞条件、不配 `initialValues`
 - 把完整 playbook 写进业务页注释代替维护 kb
+- 整页复制维修单列表当新单据模板（见 document-list-page-simple）
 
 **参考页**：一律见业务项目 `LOCAL.md`（勿在本 Skill 写死仓库路径）。
 

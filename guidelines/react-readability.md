@@ -21,8 +21,9 @@ async function handleClearSelection(rows: any[]) {
 
 ## 2. 禁止 `useEffect` 串联业务
 
+- **优先原则**（全仓）：见 [use-effect-prefer-events.md](use-effect-prefer-events.md)——能不用就不用；不得不用须先提示用户，且 effect 极薄。
 - **禁止**：`useEffect` 里因 state A 变化去调接口 B、再 setState 触发 C（隐式调用链）。
-- **允许**：挂载拉配置、Modal `open` / `afterOpenChange` 拉数、按钮 `onClick` / `Modal.onOk` 里显式请求。
+- **允许**：挂载拉配置、Modal `open` / `afterOpenChange` 拉数、按钮 `onClick` / `Modal.onOk` 里显式请求（仍优先写在事件里）。
 - 向父组件注册回调：优先 `forwardRef` + `useImperativeHandle`，或父组件在操作成功后**显式**调用 ref；避免 `useEffect(() => onRegister?.(fn), [fn])` 反复注册。
 - 输入框取消后回显：优先 `key={\`${record.id}-${resetToken}\`}` 重置 `InputNumber`，避免 `useEffect` 同步本地 state。
 
