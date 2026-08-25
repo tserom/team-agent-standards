@@ -4,6 +4,11 @@
 
 ### Added
 
+- `guidelines/api-list-sorter-params.md` + `api-list-sorter-params.mdc`（`alwaysApply`）：列表排序 `sorter=<asc|desc>-<field>`，与 `qp-*` 并列；field 白名单、DefaultSorter、前后端常量一致。
+- `docs/standards/api-list-sorter-params.md`：人读完整版（格式、边界、CR、l-project sales-manage 参考落地）。
+
+### Added
+
 - `guidelines/use-effect-prefer-events.md` + `use-effect-prefer-events.mdc`（`alwaysApply`）：能不用 `useEffect` 就不用；不得不用须先提示用户且 effect 极薄。
 - `guidelines/document-list-page-simple.md` + `document-list-page-simple.mdc`：公司仓单据列表目录瘦身、复杂度预算、双视图 remount-init、行操作白名单。
 - `docs/standards/document-list-page-simple.md`：人读完整版（自 stock-front 草稿晋升）。

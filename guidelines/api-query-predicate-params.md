@@ -99,7 +99,7 @@ qp-party_name-like=客户A
 不要把这些放进 `qp-*`：
 
 - `page` / `pageSize`：分页
-- `sort`：排序，单独设计
+- `sorter`：排序（见 `api-list-sorter-params.md`）
 - `q`：全文/多字段搜索
 - `OR`、括号、嵌套条件、任意字段路径、SQL 函数
 
