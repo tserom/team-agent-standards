@@ -4,6 +4,11 @@
 
 ### Added
 
+- `guidelines/order-jump.md` + `order-jump.mdc`：公司仓点业务单号进详情优先 `jumpToOrderDetail`；禁止列内复制 path；与 `jumpToInventory` / 菜单跳转分工。
+- `docs/standards/order-jump.md`：人读完整版（前缀表、CR）；kb 镜像 `domains/company-react/order-jump.md`。
+
+### Added
+
 - `guidelines/api-list-sorter-params.md` + `api-list-sorter-params.mdc`（`alwaysApply`）：列表排序 `sorter=<asc|desc>-<field>`，与 `qp-*` 并列；field 白名单、DefaultSorter、前后端常量一致。
 - `docs/standards/api-list-sorter-params.md`：人读完整版（格式、边界、CR、l-project sales-manage 参考落地）。
 

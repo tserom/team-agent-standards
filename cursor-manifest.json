@@ -99,6 +99,20 @@
         "**/config/detailColumns.*",
         "**/utils/statusActions.*"
       ]
+    },
+    {
+      "output": "order-jump.mdc",
+      "guideline": "order-jump.md",
+      "description": "公司仓点业务单号进详情：优先 jumpToOrderDetail（orderJump）；禁止列内复制 path；跨应用用 wujie jump",
+      "alwaysApply": false,
+      "globs": [
+        "**/orderJump.ts",
+        "**/relatedOrder*.tsx",
+        "**/RelatedOrder*.tsx",
+        "**/relatedOrderColumns.*",
+        "**/*Columns*.tsx",
+        "src/pages/**/index.tsx"
+      ]
     }
   ]
 }
