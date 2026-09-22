@@ -1,5 +1,7 @@
 # Git commit message：连续修改序号
 
+开功能分支时的**迭代号**：有 Gitee 工单则从工单 `scrum_sprint` 读取，见 [`gitee-branch-iteration.md`](gitee-branch-iteration.md)；禁止抄本地分支名。
+
 当用户在同一需求/工单上多次提交、且希望与「上一次 commit message」保持同一前缀时：
 
 1. 以用户给出的**上一条 message 全文**为基准（例如 `feat: IJJCA3-电商对账-得物增加2个TAB费用`）。

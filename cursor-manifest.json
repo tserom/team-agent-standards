@@ -34,6 +34,12 @@
       "alwaysApply": true
     },
     {
+      "output": "gitee-branch-iteration.mdc",
+      "guideline": "gitee-branch-iteration.md",
+      "description": "开功能分支时迭代号必须从 Gitee 工单 scrum_sprint 读取，禁止抄本地分支名",
+      "alwaysApply": true
+    },
+    {
       "output": "api-layering-decision.mdc",
       "guideline": "api-layering.md",
       "description": "前端 API 层 L0–L3；响应字段契约（禁止未声明业务字段 ?? 链）；实现 *Api.ts / services 前必读",
