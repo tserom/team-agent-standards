@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- `dirty-workspace-worktree`：明确清理触发——合入后立刻清；开新 worktree 前先 prune 可清项（不靠每日定时硬删）。
+
 ### Added
 
 - `guidelines/dirty-workspace-worktree.md` + `dirty-workspace-worktree.mdc`（`alwaysApply`）：主工作区脏时仅「已确认可丢的 proxy」可 stash/discard；其它未提交用 git worktree；干净优先主工作区；按产品线选基线（如铁血 → `release-tx`）。

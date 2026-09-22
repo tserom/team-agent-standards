@@ -52,6 +52,21 @@ flowchart TD
 2. worktree 内无未提交改动
 3. 无未推送提交（相对 upstream ahead=0，或提交已在远端/基线）
 
+### 何时去检查（触发）
+
+事件驱动，不靠每日定时硬删：
+
+| 触发 | Agent / 人 |
+|---|---|
+| 用户确认 MR 已合入 / finishing 该分支 | **立刻**检查对应 worktree，满足条件则 `remove` |
+| 准备 `git worktree add` 开新目录前 | 先扫现有 list，可清的先清再建 |
+
+```bash
+git worktree list
+# 对每个附属路径：干净？ ahead=0？已在基线？ → remove
+git worktree prune
+```
+
 ## 与其它规范的关系
 
 - 合代码、连续 commit 文案：`guidelines/git-commit-mr.md`

@@ -40,7 +40,16 @@ kb 工作流/踩坑（公司前端习惯拼接）：`~/Mycodes/kb/domains/workfl
 - 已在 linked worktree 内：不要再套一层；直接在该隔离目录继续。
 - 优先平台原生 worktree 工具；否则 `git worktree add`。
 - 完成后：在 worktree 功能分支 commit → push → MR（target = 所选基线）。
-- **清理**：MR 已合入基线（或确认不再需要）且该 worktree **无未提交改动、无未推送提交** → `git worktree remove <路径>` + `git worktree prune`。勿在脏 / 有未推送 commit 时删。
+- **清理门槛**：MR 已合入基线（或确认不再需要）且该 worktree **无未提交改动、无未推送提交** → 才可 `git worktree remove` + `prune`。勿在脏 / 有未推送 commit 时删。
+
+### 清理触发（Agent MUST）
+
+| 何时 | 做什么 |
+|---|---|
+| 用户说 MR **已合入** / finishing 分支 / 「合到 release-tx 了」 | **立刻**对应该功能分支的 worktree：满足门槛则 `remove`；可选 `git branch -d` 本地功能分支 |
+| **新建** worktree **之前** | `git worktree list`，对已满足门槛的附属 worktree **先清再建**（防越堆越多） |
+
+不要靠每日定时硬删 worktree（易误伤「当天未 commit」的目录）。
 
 ---
 
@@ -50,3 +59,4 @@ kb 工作流/踩坑（公司前端习惯拼接）：`~/Mycodes/kb/domains/workfl
 - [ ] 脏且非「已确认可丢的 proxy」时，是否用了 worktree 而非 stash/discard？
 - [ ] 功能分支是否基于正确产品线基线（如铁血 → `release-tx`）？
 - [ ] 合入后是否在「干净 + 已同步远程」时清理了 worktree？
+- [ ] 开新 worktree 前是否先清掉可清理的旧 worktree？
