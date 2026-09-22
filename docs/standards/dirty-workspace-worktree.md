@@ -42,6 +42,15 @@ flowchart TD
 | 脏且非确认可丢的 proxy → worktree | 默认从 `master`/`main` 开铁血单 |
 | worktree 功能分支基于正确产品线基线 | 在主工作区硬切分支「带走」未确认归属的改动 |
 | MR target = 该基线 | 为干净工作区无故套 worktree |
+| 合入后、worktree 干净且无未推送提交 → `worktree remove` | 在有未提交改动 / 未推送 commit 时删 worktree |
+
+## 清理条件（磁盘）
+
+同时满足即可删附属 worktree：
+
+1. 已合进目标基线（或确认不再需要该 checkout）
+2. worktree 内无未提交改动
+3. 无未推送提交（相对 upstream ahead=0，或提交已在远端/基线）
 
 ## 与其它规范的关系
 
