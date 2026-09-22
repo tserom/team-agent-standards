@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+### Changed
+
+- `dirty-workspace-worktree`：明确清理触发——合入后立刻清；开新 worktree 前先 prune 可清项（不靠每日定时硬删）。
+
+### Added
+
+- `guidelines/dirty-workspace-worktree.md` + `dirty-workspace-worktree.mdc`（`alwaysApply`）：主工作区脏时仅「已确认可丢的 proxy」可 stash/discard；其它未提交用 git worktree；干净优先主工作区；按产品线选基线（如铁血 → `release-tx`）。
+- `docs/standards/dirty-workspace-worktree.md`：人读完整版（流程图、场景表、与 git-commit-mr / worktree skill 关系）。
+
+### Changed
+
+- `guidelines/git-commit-mr.md`：开篇交叉引用 dirty-workspace-worktree。
+
 ### Added
 
 - `guidelines/gitee-branch-iteration.md` + `gitee-branch-iteration.mdc`（`alwaysApply`）：开功能分支时迭代号从 Gitee 工单 `scrum_sprint.title` 读取；禁止抄本地分支。
