@@ -29,7 +29,8 @@ kb 工作流/踩坑（公司前端习惯拼接）：`~/Mycodes/kb/domains/workfl
 | 爱唯 / `aiwei-*` | 对应 `aiwei-*` 基线 |
 | 用户明确指定 | 听用户的 |
 
-功能分支命名与团队现有约定一致（如 `feature/release-tx-22-<作者>-<工单号>-简述`）。
+功能分支命名与团队现有约定一致（如 `feature/release-tx-<迭代号>-<作者>-<工单号>-简述`）。  
+**迭代号**：有 Gitee 工单时从工单 `scrum_sprint` 读取，见 [`gitee-branch-iteration.md`](gitee-branch-iteration.md)；禁止抄当前本地分支。
 
 ---
 

@@ -2,6 +2,8 @@
 
 开分支 / 动手改代码前：若主工作区有未提交改动，先按 [`dirty-workspace-worktree.md`](dirty-workspace-worktree.md) 判断——干净优先主工作区；非「已确认可丢的 proxy」则用 worktree，禁止擅自 stash/discard。
 
+开功能分支时的**迭代号**：有 Gitee 工单则从工单 `scrum_sprint` 读取，见 [`gitee-branch-iteration.md`](gitee-branch-iteration.md)；禁止抄本地分支名。
+
 当用户在同一需求/工单上多次提交、且希望与「上一次 commit message」保持同一前缀时：
 
 1. 以用户给出的**上一条 message 全文**为基准（例如 `feat: IJJCA3-电商对账-得物增加2个TAB费用`）。

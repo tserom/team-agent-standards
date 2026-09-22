@@ -17,6 +17,20 @@
 
 ### Added
 
+- `guidelines/gitee-branch-iteration.md` + `gitee-branch-iteration.mdc`（`alwaysApply`）：开功能分支时迭代号从 Gitee 工单 `scrum_sprint.title` 读取；禁止抄本地分支。
+- `docs/standards/gitee-branch-iteration.md`：人读完整版（enterprise vs program id、解析示例、CR）。
+
+### Changed
+
+- `guidelines/git-commit-mr.md`：交叉引用 `gitee-branch-iteration`。
+
+### Added
+
+- `guidelines/order-jump.md` + `order-jump.mdc`：公司仓点业务单号进详情优先 `jumpToOrderDetail`；禁止列内复制 path；与 `jumpToInventory` / 菜单跳转分工。
+- `docs/standards/order-jump.md`：人读完整版（前缀表、CR）；kb 镜像 `domains/company-react/order-jump.md`。
+
+### Added
+
 - `guidelines/api-list-sorter-params.md` + `api-list-sorter-params.mdc`（`alwaysApply`）：列表排序 `sorter=<asc|desc>-<field>`，与 `qp-*` 并列；field 白名单、DefaultSorter、前后端常量一致。
 - `docs/standards/api-list-sorter-params.md`：人读完整版（格式、边界、CR、l-project sales-manage 参考落地）。
 
