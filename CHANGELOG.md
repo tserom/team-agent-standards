@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `dirty-workspace-worktree`：仅脏路径为调试 proxy（如 `config/proxy.ts`）时默认 discard/stash、**不开** worktree；不必再问「算不算 proxy」；混合脏仍 worktree。
+- `guidelines/git-commit-mr.md`：开篇交叉引用与上条对齐。
 - `dirty-workspace-worktree`：明确清理触发——合入后立刻清；开新 worktree 前先 prune 可清项（不靠每日定时硬删）。
 
 ### Added

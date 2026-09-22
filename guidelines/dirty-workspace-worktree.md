@@ -12,10 +12,10 @@ kb 工作流/踩坑（公司前端习惯拼接）：`~/Mycodes/kb/domains/workfl
 | 主工作区状态 | MUST | MUST NOT |
 |---|---|---|
 | **干净**（无未提交改动） | 在主工作区切到正确基线 → 开功能分支 → 改代码 → commit → push → MR | 为「仪式感」无故开 worktree |
-| **仅调试用 proxy 改动**，且用户确认可丢/可暂存 | 可 `git stash`，或按用户指示 discard，再按「干净」走 | 把业务半成品误当成 proxy |
-| **其它未提交改动**（别的 agent / 忘了交 / 半成品 / **不确定**） | **不动**主工作区脏文件；用 `git worktree` 另开目录，基于目标基线建功能分支，在那边改、交、提 MR | `git stash`、discard、硬切分支带走/冲掉未提交改动 |
+| **仅调试用 proxy**（脏路径集合恰好是代理配置，公司前端常见：`config/proxy.ts`） | **默认**可 `git stash` 或 discard，再按「干净」走；执行前短问 discard vs stash（或按用户当场指示）。**不必**再问「算不算 proxy」 | 为此开 worktree；把业务半成品误当成 proxy |
+| **其它未提交改动**（别的 agent / 忘了交 / 半成品 / **混合脏** / **不确定**） | **不动**主工作区脏文件；用 `git worktree` 另开目录，基于目标基线建功能分支，在那边改、交、提 MR | `git stash`、discard、硬切分支带走/冲掉未提交改动 |
 
-**不确定是不是 proxy** → 先问用户一句，**默认按「其它未提交」走 worktree**。
+**判定**：未提交路径**恰好**为上述 proxy 文件 → 按「仅 proxy」行。若还含其它路径、或看不清 → **默认 worktree**（可先问一句）。
 
 ---
 
@@ -57,7 +57,8 @@ kb 工作流/踩坑（公司前端习惯拼接）：`~/Mycodes/kb/domains/workfl
 ## PR 勾选
 
 - [ ] 动手前是否看过 `git status`？
-- [ ] 脏且非「已确认可丢的 proxy」时，是否用了 worktree 而非 stash/discard？
+- [ ] 脏且非「仅 proxy 路径」时，是否用了 worktree 而非 stash/discard？
+- [ ] 仅 `config/proxy.ts`（或同类仅代理配置）脏时，是否未开 worktree、已 discard/stash？
 - [ ] 功能分支是否基于正确产品线基线（如铁血 → `release-tx`）？
 - [ ] 合入后是否在「干净 + 已同步远程」时清理了 worktree？
 - [ ] 开新 worktree 前是否先清掉可清理的旧 worktree？
