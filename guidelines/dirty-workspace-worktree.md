@@ -40,6 +40,7 @@ kb 工作流/踩坑（公司前端习惯拼接）：`~/Mycodes/kb/domains/workfl
 - 已在 linked worktree 内：不要再套一层；直接在该隔离目录继续。
 - 优先平台原生 worktree 工具；否则 `git worktree add`。
 - 完成后：在 worktree 功能分支 commit → push → MR（target = 所选基线）。
+- **清理**：MR 已合入基线（或确认不再需要）且该 worktree **无未提交改动、无未推送提交** → `git worktree remove <路径>` + `git worktree prune`。勿在脏 / 有未推送 commit 时删。
 
 ---
 
@@ -48,3 +49,4 @@ kb 工作流/踩坑（公司前端习惯拼接）：`~/Mycodes/kb/domains/workfl
 - [ ] 动手前是否看过 `git status`？
 - [ ] 脏且非「已确认可丢的 proxy」时，是否用了 worktree 而非 stash/discard？
 - [ ] 功能分支是否基于正确产品线基线（如铁血 → `release-tx`）？
+- [ ] 合入后是否在「干净 + 已同步远程」时清理了 worktree？
