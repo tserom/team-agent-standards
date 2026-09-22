@@ -34,6 +34,12 @@
       "alwaysApply": true
     },
     {
+      "output": "dirty-workspace-worktree.mdc",
+      "guideline": "dirty-workspace-worktree.md",
+      "description": "主工作区有未提交改动时：仅确认可丢的 proxy 可 stash/discard；其它情况用 git worktree，干净时优先主工作区；按产品线选基线",
+      "alwaysApply": true
+    },
+    {
       "output": "api-layering-decision.mdc",
       "guideline": "api-layering.md",
       "description": "前端 API 层 L0–L3；响应字段契约（禁止未声明业务字段 ?? 链）；实现 *Api.ts / services 前必读",

@@ -4,6 +4,15 @@
 
 ### Added
 
+- `guidelines/dirty-workspace-worktree.md` + `dirty-workspace-worktree.mdc`（`alwaysApply`）：主工作区脏时仅「已确认可丢的 proxy」可 stash/discard；其它未提交用 git worktree；干净优先主工作区；按产品线选基线（如铁血 → `release-tx`）。
+- `docs/standards/dirty-workspace-worktree.md`：人读完整版（流程图、场景表、与 git-commit-mr / worktree skill 关系）。
+
+### Changed
+
+- `guidelines/git-commit-mr.md`：开篇交叉引用 dirty-workspace-worktree。
+
+### Added
+
 - `guidelines/api-list-sorter-params.md` + `api-list-sorter-params.mdc`（`alwaysApply`）：列表排序 `sorter=<asc|desc>-<field>`，与 `qp-*` 并列；field 白名单、DefaultSorter、前后端常量一致。
 - `docs/standards/api-list-sorter-params.md`：人读完整版（格式、边界、CR、l-project sales-manage 参考落地）。
 
