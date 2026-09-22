@@ -2,7 +2,8 @@
 
 开始改代码或开功能分支前，先判断**当前主工作区**（日常打开的那个 checkout）是否干净。与 [`git-commit-mr.md`](git-commit-mr.md) 配合：合代码仍只推功能分支并建 MR/PR；本条管**未提交现场怎么处理**。
 
-人读完整版：`docs/standards/dirty-workspace-worktree.md`
+人读完整版：`docs/standards/dirty-workspace-worktree.md`  
+kb 工作流/踩坑（公司前端习惯拼接）：`~/Mycodes/kb/domains/workflow/dirty-workspace-worktree.md`
 
 ---
 

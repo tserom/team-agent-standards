@@ -47,3 +47,4 @@ flowchart TD
 
 - 合代码、连续 commit 文案：`guidelines/git-commit-mr.md`
 - Superpowers `using-git-worktrees`：隔离目录创建细节可参照；**是否**开 worktree 以本决策表为准
+- kb 工作流镜像：`~/Mycodes/kb/domains/workflow/dirty-workspace-worktree.md`（与 `company-git-branch` 拼接）
