@@ -36,7 +36,7 @@
     {
       "output": "dirty-workspace-worktree.mdc",
       "guideline": "dirty-workspace-worktree.md",
-      "description": "主工作区有未提交改动时：仅脏路径为调试 proxy（如 config/proxy.ts）可 discard/stash 且不开 worktree；其它脏用 git worktree；干净优先主工作区；按产品线选基线",
+      "description": "功能分支一律 git worktree、主区挂基线；仅调试 proxy 可 discard/stash 后再开 worktree；清理只 list 汇报不代删；按产品线选基线",
       "alwaysApply": true
     },
     {
